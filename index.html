@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Scientific Calculator</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+       <dvi class="col-md-12">
+         <table class="calculator_style" border="0" bgcolor="#ebebeb">
+            <tbody>
+               <tr>
+                  <td colspan="5"><p class="label" id="changeLabel">DEG</p></td>
+               </tr>
+             <tr>
+                <td colspan="5" rowspan="1"><input class="result" type="text" value="0" id="result"/></td>
+             </tr>
+             <tr>
+                <td><button class="text_button_style" onclick="DEG_To_FE()"><span>DEG</span></button></td>
+                <td><button class="text_button_style" onclick="FE_To_DEG()"><span>F-E</span></button></td>
+             </tr>
+             <tr>
+                <td><button class="text_button_style" onclick="clr_MC()"><span>MC</span></button> </td>
+                <td><button class="text_button_style" onclick="MR_Click('')"><span>MR</span></button> </td>
+                <td><button class="text_button_style" onclick="M_Plus('')"><span>M+</span></button> </td>
+                <td><button class="text_button_style" onclick="display('')"><span>M-</span></button> </td>
+                <td><button class="text_button_style" onclick="MS_Click('')"><span>MS</span></button> </td>
+             </tr>
+             <tr>
+                <td colspan="2">
+                  <select class="text_button_style" id="ddlTrigonometry" onchange="ddlTrigonometry_Change()">
+                     <option value="Trigonometry"><span>&#x22BF;Trigonometry</span></option>
+                     <option value="sin">Sin</option>
+                     <option value="cos">Cos</option>
+                     <option value="tan">Tan</option>
+                  </select>
+               </td>
+                <td colspan="2">
+                  <select class="text_button_style" id="ddlFunctions" onchange="ddlFunctions_Change()">
+                     <option value="Functions"><span>&#x192; Functions</span></option>
+                     <option value="ceil">&#8968;X&#8969;</option>
+                     <option value="floor"> &#8970;X&#8971;</option>
+                     <option value="random">rand</option>
+                  </select>
+               </td>
+             </tr>
+             <tr>
+                <td><button class="button_style" onclick="round_2decimal('')"><span>2<sup>nd</sup></span></button></td>
+                <td><button class="button_style" onclick="PI_Value()"><span>&#960;</span></button> </td>
+                <td><button class="button_style" onclick="Euler_Value()"><span>&#x212F;</span></button></td>
+                <td><button class="button_style" onclick="clr()"><span>C</span></button> </td>
+                <td><button class="button_style" onclick="backclear()"><span>&#x2612;</span></button> </td>
+             </tr>
+             <tr>
+                <td><button class="button_style" onclick="x_square()">x<sup>2</sup></button></td>
+                <td><button class="button_style" onclick="onebyX('0')"><span>1/x</span></button> </td>
+                <td><button class="button_style" onclick="mod_x()"><span>|x|</span></button> </td>
+                <td><button class="button_style" onclick="display('Math.exp(')"><span>exp</span></button> </td>
+                <td><button class="button_style" onclick="display('%')"><span>mod</span></button> </td>
+             </tr>
+             <tr>
+                <td><button class="button_style" onclick="sqrt()"><sup>2</sup><span>&#8730;</span>x</button></td>
+                <td><button class="button_style" onclick="display('(')"><span>(</span></button> </td>
+                <td><button class="button_style" onclick="display(')')"><span>)</span></button> </td>
+                <td><button class="button_style" onclick="factorial()"><span>n!</span></button> </td>
+                <td><button class="button_style" onclick="display('/')"><span>&#xf7;</span></button> </td>
+             </tr>
+             <tr>
+                <td><button class="button_style" onclick="display('Math.pow(')">x<sup>y</sup></button></td>
+                <td><button class="button_style number_style" onclick="display('7')"><span>7</span></button> </td>
+                <td><button class="button_style number_style" onclick="display('8')"><span>8</span></button> </td>
+                <td><button class="button_style number_style" onclick="display('9')"><span>9</span></button> </td>
+                <td><button class="button_style" onclick="display('*')"><span>&#xd7;</span></button></td>
+             </tr>
+             <tr>
+                <td><button class="button_style" onclick="display('Math.pow(10,')">10<sup>x</sup></button></td>
+                <td><button class="button_style number_style" onclick="display('4')"><span>4</span></button> </td>
+                <td><button class="button_style number_style" onclick="display('5')"><span>5</span></button> </td>
+                <td><button class="button_style number_style" onclick="display('6')"><span>6</span></button> </td>
+                <td><button class="button_style" onclick="display('-')"><span>&#x2212;</span></button></td>
+             </tr>
+             <tr>
+                <td><button class="button_style" onclick="display('Math.log(')"><span>log</span></button> </td>
+                <td><button class="button_style number_style" onclick="display('1')"><span>1</span></button> </td>
+                <td><button class="button_style number_style" onclick="display('2')"><span>2</span></button> </td>
+                <td><button class="button_style number_style" onclick="display('3')"><span>3</span></button> </td>
+                <td><button class="button_style" onclick="display('+')"><span>&#x2b;</span></button></td>
+             </tr>
+             <tr>
+                <td><button class="button_style" onclick="display('Math.LN2')"><span>ln</span></button> </td>
+                <td><button class="button_style" onclick="display('.toFixed(')"><span>+/-</span></button></td>
+                <td><button class="button_style number_style" onclick="display('0')"><span>0</span></button> </td>
+                <td><button class="button_style" onclick="display('.')"><span>.</span></button></td>
+                <td><button class="button_style result_button" onclick="solve('=')"><span>=</span></button> </td>
+             </tr>
+          </tbody>
+          </table>
+       </dvi>
+    </div>
+</body>
+</html>
