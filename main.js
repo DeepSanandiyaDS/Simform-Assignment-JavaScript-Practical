@@ -3,6 +3,7 @@ function clr()
 {
     document.getElementById("result").value = 0
     document.getElementById('ddlTrigonometry').value = "Trigonometry";
+    document.getElementById('ddlFunctions').value = "Functions";
 }
 function clr_MC()
 {
@@ -10,6 +11,7 @@ function clr_MC()
     global = ""
     M_Plus_Value = ""
     document.getElementById('ddlTrigonometry').value = "Trigonometry";
+    document.getElementById('ddlFunctions').value = "Functions";
 }
 function display(val)
 {
@@ -27,6 +29,7 @@ function solve()
     let y = eval(x)
     document.getElementById("result").value = y
     document.getElementById('ddlTrigonometry').value = "Trigonometry";
+    document.getElementById('ddlFunctions').value = "Functions";
 }
 function backclear()
 {
@@ -136,6 +139,19 @@ function M_Minus()
 function ddlTrigonometry_Change()
 {
     var select = document.getElementById('ddlTrigonometry');
+    if(select.selectedIndex > 0)
+    {
+        var value = select.options[select.selectedIndex].value;
+        document.getElementById("result").value ="Math."+value+"("
+    }
+    else
+    {
+        document.getElementById("result").value = ""
+    }
+}
+function ddlFunctions_Change()
+{
+    var select = document.getElementById('ddlFunctions');
     if(select.selectedIndex > 0)
     {
         var value = select.options[select.selectedIndex].value;
