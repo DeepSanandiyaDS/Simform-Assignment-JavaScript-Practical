@@ -1,4 +1,3 @@
-var global = ""
 function clr()
 {
     document.getElementById("result").value = 0
@@ -8,8 +7,8 @@ function clr()
 function clr_MC()
 {
     document.getElementById("result").value = 0
-    global = ""
-    M_Plus_Value = ""
+    localStorage.clear();
+    document.getElementById("memory").innerHTML = "No Memory Storage";
     document.getElementById('ddlTrigonometry').value = "Trigonometry";
     document.getElementById('ddlFunctions').value = "Functions";
 }
@@ -119,22 +118,27 @@ function FE_To_DEG()
 }
 function MS_Click()
 {
-    global = document.getElementById("result").value;
+    var MS_Value = document.getElementById("result").value;
     document.getElementById("result").value = 0
+    localStorage.setItem("MS_Value",MS_Value)
+    document.getElementById("memory").innerHTML = "Memory = " + localStorage.getItem("MS_Value");
 }
 function MR_Click()
 {
-    document.getElementById("result").value = global
+    document.getElementById("result").value = localStorage.getItem("MS_Value")
+    document.getElementById("memory").innerHTML = "Memory = " + localStorage.getItem("MS_Value");
 }
 function M_Plus()
 {
-    global =  parseFloat(document.getElementById("result").value) +  parseFloat(global)
+    localStorage.setItem("MS_Value",(parseFloat(document.getElementById("result").value) +  parseFloat(localStorage.getItem("MS_Value"))).toString())  
     document.getElementById("result").value = 0 
+    document.getElementById("memory").innerHTML = "Memory = " + localStorage.getItem("MS_Value");
 }
 function M_Minus()
 {
-    global =  parseFloat(document.getElementById("result").value) -  parseFloat(global)
+    localStorage.setItem("MS_Value",parseFloat(document.getElementById("result").value) -  parseFloat(localStorage.getItem("MS_Value")))
     document.getElementById("result").value = 0 
+    document.getElementById("memory").innerHTML = "Memory = " + localStorage.getItem("MS_Value");
 }
 function ddlTrigonometry_Change()
 {
